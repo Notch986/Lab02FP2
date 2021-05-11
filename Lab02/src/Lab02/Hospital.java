@@ -30,7 +30,7 @@ public class Hospital {
     }
     public static void menu ()  throws IOException{
     	
-        System.out.println("******MENÚ******" +
+        System.out.println("******MENÚ PRINCIPAL******" +
                 "\n1. PACIENTES." +
                 "\n2. ENFERMEDADES." +
                 "\n3. CASOS." +
