@@ -53,7 +53,7 @@ public class Hospital {
             	generartxt();
                 break;
             default:
-                System.out.println("Número ingresado incorrecto , intente de nuevo.");
+                System.out.println("Número ingresado incorrecto , intente de nuevo porfavor.");
                 menu();
         }
     }
