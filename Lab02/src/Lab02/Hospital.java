@@ -124,7 +124,7 @@ public class Hospital {
                 reporte();
                 break;
             default:
-                System.out.println("Número ingresado incorrecto, intente de nuevo");
+                System.out.println("Número ingresado incorrecto\n intente de nuevo");
                 pacientes();
         }
         
