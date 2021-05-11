@@ -96,8 +96,8 @@ public class Paciente {
 	public String toString () {
 		String gen;
 		if(genero == true) { gen ="Varon";} else {gen = "Mujer";}
-		return nombres+"\t"+paterno+"\t"+materno+"\t"+
-				gen+"\t"+telefono+"\t"+nacimiento+"\t"+peso+"\t"+talla+
-				"\t"+domicilio;
+		return nombres+" "+paterno+" "+materno+" "+
+				gen+" "+nacimiento+" "+telefono+" "+peso+" "+talla+
+				" "+domicilio;
 	}
 }

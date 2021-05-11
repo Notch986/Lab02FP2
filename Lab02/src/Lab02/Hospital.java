@@ -5,10 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Hospital {
@@ -21,16 +19,15 @@ public class Hospital {
     public static Casos cas;
     
     public static void main(String[]args ) throws IOException{
-        
-    	do{ 
-            menu();
-        }
-        while(num1<4);
+         
+    	menu();
+    	scan.close();
+    	
     	
     }
     public static void menu ()  throws IOException{
     	
-        System.out.println("******MENÚ PRINCIPAL******" +
+        System.out.println("******MENÚ******" +
                 "\n1. PACIENTES." +
                 "\n2. ENFERMEDADES." +
                 "\n3. CASOS." +
@@ -53,7 +50,7 @@ public class Hospital {
             	generartxt();
                 break;
             default:
-                System.out.println("Número ingresado incorrecto , intente de nuevo porfavor.");
+                System.out.println("Número ingresado incorrecto, intente de nuevo.");
                 menu();
         }
     }
@@ -124,7 +121,7 @@ public class Hospital {
                 reporte();
                 break;
             default:
-                System.out.println("Número ingresado incorrecto\n intente de nuevo");
+                System.out.println("Número ingresado incorrecto, intente de nuevo");
                 pacientes();
         }
         
@@ -224,9 +221,7 @@ public class Hospital {
                 for(int i=0; i<e.size(); i++){
                     if(e.get(i).getNombre().equalsIgnoreCase(caso)){
                         registroCasos(cas);
-                        c.get(i).setCodigo(cas.getCodigo());
-                        c.get(i).setNombrePaciente(cas.getNombrePaciente());
-                        c.get(i).setEnfermedad(cas.getEnfermedad());
+                        c.get(i).setCodigo(cas.getCodigo());   
                         c.get(i).setSaturacion(cas.getSaturacion());
                         c.get(i).setTemperatura(cas.getTemperatura());
                         }
@@ -285,14 +280,14 @@ public class Hospital {
     	ArrayList<Casos> c2 = new ArrayList<Casos>();
     	
     	for(int i=0; i<c.size(); i++) {
-    		nom.add(c.get(i).getNombrePaciente());
+    		nom.add(p.get(i).getNombres());
     	}
     	
     	Collections.sort(nom);
     	
     	for(int i=0; i<c.size(); i++) {
     		for(int j=0; j<c.size(); j++) {
-    			if(nom.get(i).equals(c.get(j).getNombrePaciente())) {
+    			if(nom.get(i).equals(p.get(j).getNombres())) {
     				c2.add(c.get(j));
     			}
     		}
@@ -348,19 +343,12 @@ public class Hospital {
         enf.setMedicacion(scan.nextLine());
         System.out.print("Tiempo en días: ");
         enf.setTiempo(scan.nextShort());
-        System.out.print("Notas: ");
-        scan.nextLine();
-        enf.setNotas(scan.nextLine());
     }
     public static Casos registroCasos(Casos cas){
     	Casos casR = new Casos();
     	System.out.print("Caso número: ");
     	scan.nextLine();
     	cas.setCodigo(scan.nextLine());
-        System.out.print("Nombre del Paciente: ");
-        cas.setNombrePaciente(scan.nextLine());
-        System.out.print("Enfermedad: ");
-        cas.setEnfermedad(scan.nextLine());
         System.out.print("Saturacion de Oxigeno(%): ");
         cas.setSaturacion(scan.nextByte());
         System.out.print("Temperatura: ");
@@ -371,28 +359,27 @@ public class Hospital {
     public static void generartxt () throws IOException{
     	File reporte = null;
     	BufferedWriter bw = null;
-    	String genero="";
     	reporte = new File ("FP2-P_A_LAB_02_reporte.txt");
     	reporte.createNewFile();
 	     	bw = new BufferedWriter(new FileWriter(reporte));
 	     	
 	     	bw.write("ENFERMEDADES\n");
+	     	
 	     	for(int i=0; i<e.size(); i++) {
 	     		bw.write(e.get(i).getNombre()+" ...\n");
 	     	}
-	     	bw.write("...\n\n");
 	     	
+	     	bw.write("...\n\n");
 	     	bw.write("PACIENTES\n");
+	     	
 	     	for(int i=0; i<p.size(); i++) {
-	     		if (p.get(i).isGenero()==true) {genero="Varon";}
-		        else if(p.get(i).isGenero()==false) {genero="Mujer";}
-	     		bw.write(p.get(i).getNombres()+" "+p.get(i).getPaterno()+"\t"+
-	     		        genero+"\t"+p.get(i).getNacimiento()+"\t"+p.get(i).getTelefono()+"\t...\n");
+	     		bw.write(p.get(i).toString()+"\t...\n");
 	     	}
 	     	bw.write("...\n\n");
 	     	bw.write("CASOS\n");
+	     	
 	     	for(int i=0; i<c.size(); i++) {
-	     		bw.write(c.get(i).toString()+"\n");
+	     		bw.write(c.get(i).toString(p.get(i),e.get(i))+"\n");
 	     	}
 	     	bw.write("...\n\n");
 	     	bw.close();
