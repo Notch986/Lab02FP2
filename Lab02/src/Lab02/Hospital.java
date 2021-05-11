@@ -35,7 +35,7 @@ public class Hospital {
                 "\n2. ENFERMEDADES." +
                 "\n3. CASOS." +
                 "\n4. SALIR.");
-        System.out.print("Numero: ");
+        System.out.print("Num: ");
             num1 = scan.nextByte();
         switch(num1){
             case 1:
