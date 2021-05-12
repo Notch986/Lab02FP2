@@ -14,19 +14,18 @@ public class Hospital {
     public static Scanner scan = new Scanner(System.in);
     public static ArrayList<Paciente> p = new ArrayList<Paciente>();
     public static ArrayList<Enfermedad> e = new ArrayList<Enfermedad>();
-    public static ArrayList<Casos> c = new ArrayList<Casos>();
-    public static byte num1;
+    public static ArrayList<Casos> c = new ArrayList<Casos>(); 
     public static Casos cas;
+    public static String genero;
     
     public static void main(String[]args ) throws IOException{
          
     	menu();
     	scan.close();
     	
-    	
     }
     public static void menu ()  throws IOException{
-    	
+    	byte num1;
         System.out.println("******MENÚ******" +
                 "\n1. PACIENTES." +
                 "\n2. ENFERMEDADES." +
@@ -90,7 +89,7 @@ public class Hospital {
                         p.get(i).setMaterno(pac.getMaterno());
                         p.get(i).setDni(pac.getDni());
                         p.get(i).setCodigo(pac.getCodigo());
-                        p.get(i).setGenero(pac.isGenero());
+                        p.get(i).setGenero(genero);
                         p.get(i).setNacimiento(pac.getNacimiento());
                         p.get(i).setPeso(pac.getPeso()); 
                         p.get(i).setTalla(pac.getTalla());
@@ -261,7 +260,15 @@ public class Hospital {
         ArrayCasos(); //se repite
     }
     public static void ArrayPacientes(){//imprimir pácientes
-    	//ordenar pacientes    
+    	//ordenar pacientes
+    	ArrayList<String> nom = new ArrayList<String>();
+    	ArrayList<Paciente> p2 = new ArrayList<Paciente>();
+    	
+    	for(int i=0; i<p.size(); i++) {
+    		nom.add(p.get(i).getNombres());
+    	}
+    	
+    	Collections.sort(nom);
     	System.out.println("PACIENTES:");
     	for(int i = 0; i < p.size(); i++) {
                 System.out.println((i+1)+":\t"+p.get(i).toString());
@@ -315,15 +322,8 @@ public class Hospital {
         pac.setCodigo(scan.nextLine());
         
         System.out.print("Genero(H)(M): ");
-        String genero=scan.nextLine();
-        
-        if (genero.equalsIgnoreCase("H")){
-        	pac.setGenero(true);
-        }
-        else if(genero.equalsIgnoreCase("M")){
-        	pac.setGenero(false);
-        }
-        
+        genero=scan.nextLine();
+        pac.setGenero(genero);
         System.out.print("Nacimiento: ");
         pac.setNacimiento(scan.nextLine());
         

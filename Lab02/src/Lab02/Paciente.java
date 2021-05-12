@@ -60,8 +60,13 @@ public class Paciente {
 	public boolean isGenero() {
 		return genero;
 	}
-	public void setGenero(boolean genero) {
-		this.genero = genero;
+	public void setGenero(String genero) {
+		if (genero.equalsIgnoreCase("H")){
+        	this.genero=true;
+        }
+        else if(genero.equalsIgnoreCase("M")){
+        	this.genero=false;
+        }
 	}	
 	public String getNacimiento() {
 		return nacimiento;
