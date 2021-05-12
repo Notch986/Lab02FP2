@@ -6,9 +6,13 @@ import java.util.Date;
 public class Casos extends Enfermedad{
 
 	private String codigo;
+	private String nombrePaciente;
 	private byte saturacion;
 	private float temperatura;
+	private String medicacion;
 	private String atencion;
+	private String enfermedad;
+	private String domicilio;
 	
 	Casos(){
 		codigo="202101";
@@ -48,14 +52,39 @@ public class Casos extends Enfermedad{
 		return atencion;
 	}
 
-	public String toString (Paciente p, Enfermedad enf) {
-        if(enf.getNombre().equalsIgnoreCase("COVID-19")) {
-        	enf.setMedicacion("medicacion para covid-19.");
-        } else if(enf.getNombre().equalsIgnoreCase("Sarampion")) {
-        	enf.setMedicacion("medicacion para sarampion.");
-        } else if (enf.getNombre().equalsIgnoreCase("Anemia")) {
-        	enf.setMedicacion("mediacacion para anemia.");
+	public String getNombrePaciente() {
+		return nombrePaciente;
+	}
+
+	public void setNombrePaciente(String nombrePaciente) {
+		this.nombrePaciente = nombrePaciente;
+	}
+
+	public String getDomicilio() {
+		return domicilio;
+	}
+
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
+	}
+
+	public String getEnfermedad() {
+		return enfermedad;
+	}
+
+	public void setEnfermedad(String enfermedad) {
+		if(enfermedad.equalsIgnoreCase("COVID-19")) {
+        	medicacion="medicacion para covid-19.";
+        } else if(enfermedad.equalsIgnoreCase("Sarampion")) {
+        	medicacion = "medicacion para sarampion.";
+        } else if (enfermedad.equalsIgnoreCase("Anemia")) {
+        	medicacion = "mediacacion para anemia.";
         }
-		return p.getNombres()+" "+p.getPaterno()+" "+enf.getNombre()+" "+atencion+" "+enf.getMedicacion()+" Temp. "+temperatura+" Saturacion "+saturacion+". "+p.getDomicilio();
+		this.enfermedad = enfermedad;
+	}
+
+	public String toString () {
+        
+		return nombrePaciente+" "+enfermedad+" "+atencion+" "+medicacion+" Temp. "+temperatura+" Saturacion "+saturacion+". "+domicilio;
 	}
 }
