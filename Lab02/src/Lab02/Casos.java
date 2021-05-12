@@ -3,7 +3,7 @@ package Lab02;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Casos extends Enfermedad{
+public class Casos {
 
 	private String codigo;
 	private String nombrePaciente;
@@ -78,7 +78,7 @@ public class Casos extends Enfermedad{
         } else if(enfermedad.equalsIgnoreCase("Sarampion")) {
         	medicacion = "medicacion para sarampion.";
         } else if (enfermedad.equalsIgnoreCase("Anemia")) {
-        	medicacion = "mediacacion para anemia.";
+        	medicacion = "medicacion para anemia.";
         }
 		this.enfermedad = enfermedad;
 	}
