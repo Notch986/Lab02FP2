@@ -26,7 +26,7 @@ public class Hospital {
     }
     public static void menu ()  throws IOException{
     	byte num1;
-        System.out.println("******MENÚ******" +
+        System.out.println("******MENÃš******" +
                 "\n1. PACIENTES." +
                 "\n2. ENFERMEDADES." +
                 "\n3. CASOS." +
@@ -49,7 +49,7 @@ public class Hospital {
             	generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
+                System.out.println("NÃºmero ingresado incorrecto.\nIntente de nuevo.");
                 menu();
         }
     }
@@ -77,7 +77,7 @@ public class Hospital {
                 pacientes();
                 break;
             case 3://actualizar paciente
-                System.out.print("Ingrese Código del Paciente: ");
+                System.out.print("Ingrese CÃ³digo del Paciente: ");
                 codigo=scan.next();
                 System.out.println("Ingrese datos actualizados del paciente:");
                 //registroPaciente(pac);
@@ -101,7 +101,8 @@ public class Hospital {
                 pacientes();
                 break;
             case 4:
-                System.out.print("Ingrese Código del Paciente: ");
+                System.out.print("Ingrese CÃ³digo del Paciente: ");
+		scan.nextLine();
                 codigo=scan.nextLine();
                 for (int i = 0; i <p.size();i++) {
                 	if(p.get(i).getCodigo().equalsIgnoreCase(codigo)) {
@@ -121,7 +122,7 @@ public class Hospital {
                 generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
+                System.out.println("NÃºmero ingresado incorrecto.\nIntente de nuevo.");
                 pacientes();
         }
     }
@@ -185,7 +186,7 @@ public class Hospital {
                 generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
+                System.out.println("NÃºmero ingresado incorrecto.\nIntente de nuevo.");
                 enfermedades();
         }
     }
@@ -248,7 +249,7 @@ public class Hospital {
                 generartxt();
                 break;
             default:
-                System.out.println("Número ingresado incorrecto, Intente de nuevo");
+                System.out.println("NÃºmero ingresado incorrecto, Intente de nuevo");
                 casos();
         }
     }
@@ -259,7 +260,7 @@ public class Hospital {
         System.out.println();
         ArrayCasos();
     }
-    public static void ArrayPacientes(){//imprimir pácientes
+    public static void ArrayPacientes(){//imprimir pÃ¡cientes
     	//ordenar pacientes
     	ArrayList<String> nom = new ArrayList<String>();
     	ArrayList<Paciente> p2 = new ArrayList<Paciente>();
@@ -334,12 +335,12 @@ public class Hospital {
     	enf.setNombre(scan.nextLine());
         System.out.print("Medicacion: ");
         enf.setMedicacion(scan.nextLine());
-        System.out.print("Tiempo en días: ");
+        System.out.print("Tiempo en dÃ­as: ");
         enf.setTiempo(scan.nextShort());
     }
     public static Casos registroCasos(Casos cas){
     	Casos casR = new Casos();
-    	System.out.print("Caso número: ");
+    	System.out.print("Caso nÃºmero: ");
     	scan.nextLine();
     	cas.setCodigo(scan.nextLine());
         System.out.print("Saturacion de Oxigeno(%): ");
