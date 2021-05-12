@@ -284,7 +284,7 @@ public class Hospital {
     }
     public static void ArrayEnfermedades(){//imprimir enfermedades   
     	System.out.println("ENFERMEDADES:");
-    	for(int i = 0; i < p.size(); i++) {
+    	for(int i = 0; i < e.size(); i++) {
                 System.out.println((i+1)+":\t"+e.get(i).toString());
         }
     }
