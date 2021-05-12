@@ -294,12 +294,13 @@ public class Hospital {
     	ArrayList<Casos> c2 = new ArrayList<Casos>();
     	
     	for(int i=0; i<c.size(); i++) {
-    		nom.add(p.get(i).getNombres());
+    		nom.add(c.get(i).getNombrePaciente());
     	}
     	Collections.sort(nom);
+    	
     	for(int i=0; i<c.size(); i++) {
     		for(int j=0; j<c.size(); j++) {
-    			if(nom.get(i).equals(p.get(j).getNombres())) {
+    			if(nom.get(i).equalsIgnoreCase(c.get(j).getNombrePaciente())) {
     				c2.add(c.get(j));
     			}
     		}
@@ -352,7 +353,7 @@ public class Hospital {
     	scan.nextLine();
     	cas.setCodigo(scan.nextLine());
     	System.out.print("Nombre del paciente: ");
-    	cas.setNombre(scan.nextLine());
+    	cas.setNombrePaciente(scan.nextLine());
     	System.out.print("domicilio: ");
     	cas.setDomicilio(scan.nextLine());
     	System.out.print("Enfermedad: ");
