@@ -299,7 +299,7 @@ public class Hospital {
     	c = c2;
     	System.out.println("CASOS:");
     	for(int i = 0; i < c.size(); i++) {
-                System.out.println((i+1)+":\t"+c.get(i).toString());
+                System.out.println((i+1)+":\t"+c.get(i).toString(p.get(i),e.get(i)));
         }
     }
     public static void registroPaciente(Paciente pac){
