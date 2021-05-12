@@ -80,7 +80,7 @@ public class Hospital {
                 System.out.print("Ingrese Código del Paciente: ");
                 codigo=scan.next();
                 System.out.println("Ingrese datos actualizados del paciente:");
-                registroPaciente(pac);
+                //registroPaciente(pac);
                 for(int i=0; i<p.size(); i++){
                     if(p.get(i).getCodigo().equalsIgnoreCase(codigo)){
                         registroPaciente(pac);
@@ -152,7 +152,7 @@ public class Hospital {
                 System.out.print("Ingrese nombre de la Enfermedad: ");
                 nombre=scan.next();
                 System.out.println("Ingrese datos actualizados de la Enfermedad:");
-                registroEnfermedad(enf);
+                //registroEnfermedad(enf);solucionado el pide doble datos
                 for(int i=0; i<e.size(); i++){
                     if(e.get(i).getNombre().equalsIgnoreCase(nombre)){
                         registroEnfermedad(enf);
@@ -215,7 +215,7 @@ public class Hospital {
                 System.out.print("Ingrese codigo de caso: ");
                 caso=scan.next();
                 System.out.println("Ingrese datos actualizados de la Enfermedad:");
-                registroCasos(cas);
+                //registroCasos(cas);
                 for(int i=0; i<e.size(); i++){
                     if(e.get(i).getNombre().equalsIgnoreCase(caso)){
                         registroCasos(cas);
@@ -260,6 +260,7 @@ public class Hospital {
         ArrayCasos();
     }
     public static void ArrayPacientes(){//imprimir pácientes
+    	//ordenar pacientes
     	ArrayList<String> nom = new ArrayList<String>();
     	ArrayList<Paciente> p2 = new ArrayList<Paciente>();
     	
@@ -272,8 +273,7 @@ public class Hospital {
                 System.out.println((i+1)+":\t"+p.get(i).toString());
         }
     }
-    public static void ArrayEnfermedades(){//imprimir enfermedades
-        //ordenar enfermedades    
+    public static void ArrayEnfermedades(){//imprimir enfermedades   
     	System.out.println("ENFERMEDADES:");
     	for(int i = 0; i < p.size(); i++) {
                 System.out.println((i+1)+":\t"+e.get(i).toString());
