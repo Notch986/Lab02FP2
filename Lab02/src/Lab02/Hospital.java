@@ -269,6 +269,14 @@ public class Hospital {
     		nom.add(p.get(i).getNombres());
     	}
     	Collections.sort(nom);
+    	for(int i=0; i<p.size(); i++) {
+    		for(int j=0; j<p.size(); j++) {
+    			if(nom.get(i).equals(p.get(j).getNombres())) {
+    				p2.add(p.get(j));
+    			}
+    		}
+    	}
+    	p = p2;
     	System.out.println("PACIENTES:");
     	for(int i = 0; i < p.size(); i++) {
                 System.out.println((i+1)+":\t"+p.get(i).toString());
@@ -299,7 +307,7 @@ public class Hospital {
     	c = c2;
     	System.out.println("CASOS:");
     	for(int i = 0; i < c.size(); i++) {
-                System.out.println((i+1)+":\t"+c.get(i).toString(p.get(i),e.get(i)));
+                System.out.println((i+1)+":\t"+c.get(i).toString());
         }
     }
     public static void registroPaciente(Paciente pac){
@@ -343,6 +351,12 @@ public class Hospital {
     	System.out.print("Caso número: ");
     	scan.nextLine();
     	cas.setCodigo(scan.nextLine());
+    	System.out.print("Nombre del paciente: ");
+    	cas.setNombre(scan.nextLine());
+    	System.out.print("domicilio: ");
+    	cas.setDomicilio(scan.nextLine());
+    	System.out.print("Enfermedad: ");
+    	cas.setEnfermedad(scan.nextLine());
         System.out.print("Saturacion de Oxigeno(%): ");
         cas.setSaturacion(scan.nextByte());
         System.out.print("Temperatura: ");
@@ -373,7 +387,7 @@ public class Hospital {
 	     	bw.write("CASOS\n");
 	     	
 	     	for(int i=0; i<c.size(); i++) {
-	     		bw.write(c.get(i).toString(p.get(i),e.get(i))+"\n");
+	     		bw.write(c.get(i).toString()+"\n");
 	     	}
 	     	bw.write("...\n\n");
 	     	bw.close();
