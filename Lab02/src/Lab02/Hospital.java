@@ -45,11 +45,11 @@ public class Hospital {
                 break;
             case 4:
             	System.out.println("Fin del Programa.\nDatos guardados.");
-            	reporte();
-            	generartxt();
+            	reporte();//imprimir Base de Datos
+            	generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto, intente de nuevo.");
+                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
                 menu();
         }
     }
@@ -116,14 +116,14 @@ public class Hospital {
                 menu();
                 break;
             case 6:
-                System.out.println("Fin del Programa.\nDatos guardados.");  //crear Base_de_Datos.txt
-                reporte();
+                System.out.println("Fin del Programa.\nDatos guardados."); 
+                reporte();//imprimir Base de Datos
+                generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto, intente de nuevo");
+                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
                 pacientes();
         }
-        
     }
     public static void enfermedades () throws IOException{
     	String nombre;
@@ -180,14 +180,14 @@ public class Hospital {
                 menu();
                 break;
             case 6:
-                System.out.println("Fin del Programa.\nDatos guardados.");  //crear Base_de_Datos.txt
-                reporte();
+                System.out.println("Fin del Programa.\nDatos guardados.");
+                reporte();//imprimir Base de Datos
+                generartxt();//imprimit .txt
                 break;
             default:
-                System.out.println("Número ingresado incorrecto, Intente de nuevo");
+                System.out.println("Número ingresado incorrecto.\nIntente de nuevo.");
                 enfermedades();
         }
-        
     }
     public static void casos () throws IOException{
         String caso;
@@ -200,7 +200,6 @@ public class Hospital {
                 "\n6. SALIR.");
         System.out.print("Num: ");
         byte c_caso = scan.nextByte();
-        
         switch(c_caso){
             case 1:
             	cas = new Casos();
@@ -246,6 +245,7 @@ public class Hospital {
             case 6:
                 System.out.println("Fin del Programa.\nDatos guardados.");  //crear Base_de_Datos.txt
                 reporte();
+                generartxt();
                 break;
             default:
                 System.out.println("Número ingresado incorrecto, Intente de nuevo");
@@ -257,17 +257,15 @@ public class Hospital {
         System.out.println();
         ArrayEnfermedades();
         System.out.println();
-        ArrayCasos(); //se repite
+        ArrayCasos();
     }
     public static void ArrayPacientes(){//imprimir pácientes
-    	//ordenar pacientes
     	ArrayList<String> nom = new ArrayList<String>();
     	ArrayList<Paciente> p2 = new ArrayList<Paciente>();
     	
     	for(int i=0; i<p.size(); i++) {
     		nom.add(p.get(i).getNombres());
     	}
-    	
     	Collections.sort(nom);
     	System.out.println("PACIENTES:");
     	for(int i = 0; i < p.size(); i++) {
@@ -289,9 +287,7 @@ public class Hospital {
     	for(int i=0; i<c.size(); i++) {
     		nom.add(p.get(i).getNombres());
     	}
-    	
     	Collections.sort(nom);
-    	
     	for(int i=0; i<c.size(); i++) {
     		for(int j=0; j<c.size(); j++) {
     			if(nom.get(i).equals(p.get(j).getNombres())) {
@@ -300,7 +296,6 @@ public class Hospital {
     		}
     	}
     	c = c2;
-    	
     	System.out.println("CASOS:");
     	for(int i = 0; i < c.size(); i++) {
                 System.out.println((i+1)+":\t"+c.get(i).toString());
@@ -320,13 +315,11 @@ public class Hospital {
         pac.setDomicilio(scan.nextLine());
         System.out.print("Codigo: ");
         pac.setCodigo(scan.nextLine());
-        
         System.out.print("Genero(H)(M): ");
         genero=scan.nextLine();
         pac.setGenero(genero);
         System.out.print("Nacimiento: ");
         pac.setNacimiento(scan.nextLine());
-        
         System.out.print("Peso: ");
         pac.setPeso(scan.nextFloat());
         System.out.print("Talla: ");

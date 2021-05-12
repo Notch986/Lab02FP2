@@ -16,8 +16,8 @@ public class Paciente {
 	
 	Paciente(){
 		nombres="anonimo";
-		materno="sin Apellido Materno";
 		paterno="sin Apellido Paterno";
+		materno="sin Apellido Materno";
 		dni="sin DNI";
 		codigo="sin código";
 		nacimiento="";
